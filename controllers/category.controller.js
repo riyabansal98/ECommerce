@@ -5,6 +5,7 @@
  * in this contoller file will be executed. 
 */
 
+const req = require("express/lib/request");
 const db = require("../models");
 const Category = db.category;
 
@@ -131,6 +132,29 @@ exports.update = (req, res) => {
         //Where the updation task failed. 
         res.status(500).send({
             message: "Some internal error while updating the category based on id"
+        })
+    })
+}
+
+/**
+ * Delete an existing category based on category id
+*/
+exports.delete = (req, res) => {
+    const categoryId = req.params.id;
+
+    Category.destroy({
+        where: {
+            id: categoryId
+        }
+    })
+    .then(result => {
+        res.status(200).send({
+            message: "Successfully deleted the category"
+        })
+    })
+    .catch(err => {
+        res.status(500).send({
+            message: "Some internal error while deleting the category based on id"
         })
     })
 }
