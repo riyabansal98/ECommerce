@@ -49,6 +49,7 @@ function init() {
 
 require('./routes/category.routes')(app)
 
+
 app.listen(serverConfig.PORT, () => {
     console.log(`Application started on the port no : ${serverConfig.PORT}`)
 })

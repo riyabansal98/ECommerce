@@ -31,6 +31,7 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = seq;
 db.category = require('./category.model.js')(db.sequelize, Sequelize);
+db.product = require('./product.model.js')(db.sequelize, Sequelize);
 
 /**
  * db = {
@@ -39,6 +40,9 @@ db.category = require('./category.model.js')(db.sequelize, Sequelize);
  *  category: function() {
  *  
  *  }
+ *  product: function() {
+ *  
+ * }
  * }
  */
 module.exports = db;

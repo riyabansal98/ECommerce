@@ -84,10 +84,16 @@ exports.findAll = (req, res) => {
 */
 
 exports.findOne = (req, res) => {
-    const categoryId = req.params.id; //1
+    const categoryId = req.params.id; 
 
     Category.findByPk(categoryId)
     .then(category => {
+
+        if(!category) {
+            return res.status(404).json({
+                message: 'Category not found'
+            })
+        }
         res.status(200).send(category);
     })
     .catch(err => {
