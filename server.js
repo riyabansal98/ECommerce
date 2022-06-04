@@ -48,6 +48,7 @@ function init() {
 }
 
 require('./routes/category.routes')(app)
+require('./routes/product.routes')(app)
 
 
 app.listen(serverConfig.PORT, () => {

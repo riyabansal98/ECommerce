@@ -5,7 +5,6 @@
  * in this contoller file will be executed. 
 */
 
-const req = require("express/lib/request");
 const db = require("../models");
 const Category = db.category;
 
