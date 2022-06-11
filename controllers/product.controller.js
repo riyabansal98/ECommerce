@@ -121,7 +121,8 @@ exports.update = (req, res) => {
     const product = {
         name: req.body.name,
         description: req.body.description,
-        cost: req.body.cost
+        cost: req.body.cost,
+        categoryId: req.body.categoryId
     }
 
     const productId = req.params.id;
@@ -164,3 +165,28 @@ exports.delete = (req, res) => {
         })
     })
 }
+
+
+/** 
+ * Get the list of all the products under a category 
+ */
+
+exports.getProductsUnderCategory = (req, res) => {
+    const categoryId = parseInt(req.params.categoryId);
+
+    // select * from Product where categoryID = categoryId
+    Product.findAll({
+        where: {
+            categoryId: categoryId
+        }
+    })
+    .then(products => {
+        res.status(200).send(products);
+    })
+    .catch(err => {
+        res.status(500).send({
+            message: "Some internal error while fetching products based on category id"
+        })
+    })
+}
+
