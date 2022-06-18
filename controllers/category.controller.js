@@ -38,6 +38,7 @@ exports.create = (req, res) => {
     })
 }
 
+
 /**
  * Get a list of all the categories
 */
