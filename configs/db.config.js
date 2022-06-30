@@ -10,7 +10,7 @@ module.exports = {
         HOST: "sql6.freemysqlhosting.net",
         USER: "sql6503117",
         PASSWORD: "nJtZypU7Jg",
-        DB: "ecom_db",
+        DB: "sql6503117",
         dialect: "mysql"
     }
 }
